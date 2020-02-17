@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/charte graphique.css">
+	<title></title>
+</head>
+<body class="Font">
+
+	<!-- Header -->
+	<header>
+		<div class="logo flex">
+			<div><img src="https://img.icons8.com/nolan/64/microphone.png"></div>
+			<h1 class="lvl1">Podcasty</h1>
+		</div>
+	</header>
+
+	<!-- Contenue -->
+
+	<!-- Podcast -->
+	<section class="podcast flex">
+
+		<!-- LeftShow -->
+		<article class="show flex">
+			<center class="leftShow">
+				<div class="imgPod"><img src="img/podcast1/image.webp"></div>
+				<h1>HiP HoP & Remix DiM ArtraK</h1>
+			</center>
+			<div class="rightShow">
+				<h2>Catégorie:</h2>
+				<p>Music</p>
+				<h2>Tags:</h2>
+				<p>Hip-Hop, LifeStyle</p>
+			</div>
+		</article>
+
+		<!-- RightShow -->
+		<article class="infos flex">
+			<table>
+				<tr>
+					<td><h2>Podcasteur:</h2></td><td>DiM ArtraK</td>
+				</tr>
+				<tr>
+					<td><h2>Episodes:</h2></td><td>03</td>
+				</tr>
+				<tr>
+					<td><h2>Description:</h2></td>
+					<td>
+						Dj & Producteur depuis de nombreuses années, vous pouvez retrouver mes mixs et mes tracks sur : Instagram : dim_artrak Spotify, Itunes, Deezer, etc ... : DiM ArtraK Facebook : DiM ArtraK All of my Mixs Mixcloud : DiM ArtraK
+					</td>
+				</tr>
+			</table>
+		</article>
+	</section>
+
+	<!-- List -->
+	<section class="list flex">
+
+		<!-- ListPodcast -->
+		<article class="podList flex">
+			<center class="pod">
+				<div class="imgPod"><img src="img/podcast1/image.webp"></div>
+				<h1>HiP HoP & Remix DiM ArtraK</h1>
+			</center>
+			<center class="pod">
+				<div class="imgPod"><img src="img/podcast1/image.webp"></div>
+				<h1>HiP HoP & Remix DiM ArtraK</h1>
+			</center>
+			<center class="pod">
+				<div class="imgPod"><img src="img/podcast1/image.webp"></div>
+				<h1>HiP HoP & Remix DiM ArtraK</h1>
+			</center>
+			<center class="pod">
+				<div class="imgPod"><img src="img/podcast1/image.webp"></div>
+				<h1>HiP HoP & Remix DiM ArtraK</h1>
+			</center>
+			<center class="pod">
+				<div class="imgPod"><img src="img/podcast1/image.webp"></div>
+				<h1>HiP HoP & Remix DiM ArtraK</h1>
+			</center>
+		</article>
+
+		<!-- Playlist -->
+		<article class="playlist">
+			<div class="lecteur">
+				<div class="infosLecteur flex">
+					<span>(01/03): Alan Walker - Alone</span>
+					<span>23:07 03/02/2020</span>
+					<span>
+						<a href="audio/Podcast1/Alan Walker - Alone.mp3">
+							<div class="telecharger"><img src="https://img.icons8.com/nolan/64/download-from-cloud.png"></div>
+						</a>
+					</span>
+				</div>
+				<audio controls="controls">
+					<source src="audio/Podcast1/Alan Walker - Alone.mp3">
+				</audio>
+			</div>
+			<center>
+				
+			</center>
+		</article>
+	</section>
+
+
+
+	<script type="text/javascript">
+		
+		class Node{
+			constructor(data){
+				this.data = data;
+				this.next = null;
+			}
+		}
+
+		class LinkedList{
+			constructor(data){
+				this.head = new Node(data);
+				this.size = 0; //List-size
+			}
+
+			InsertAt(data, index = this.size){
+				//Pour le OutOfRangeException
+				if (index > this.size || index < 0)
+					return;
+
+				var node = new Node(data);
+
+				if (this.size == 0) //Si c'est le 1er (List vide)
+					this.head = node;
+
+
+				else if (index == 0){ //Sinon (List pas vide) et insertion en 1er
+					node.next = this.head;
+					this.head = node;
+				}
+
+				else //Sinon (List pas vide) insertion (at)
+					for (var i = 0, current = this.head; i <= index; i++, current = current.next) //!!La boucle ne parcour pas le 1er
+						if (i == index - 1){ //Localiser le précédent
+							node.next = current.next; //Lier la 2eme suite de la liste à la nouvelle node
+							current.next = node; //Lier la node à la précédente (L'actuelle ignorer)
+							break;
+						}
+
+				this.size++;
+			}
+
+			RemoveAt(index = this.size - 1){
+				//Pour le OutOfRangeException
+				if (index < 0 || index >= this.size)
+					return;
+
+				if (index == 0){ //Si vous voulez supprimer le 1er (Le next sera head)
+					this.head = this.head.next;
+					this.size--;
+					return;
+				}
+
+				for (var i = 0, current = this.head; i <= index; i++, current = current.next) //!!La boucle ne parcour pas le 1er
+					if (i == index -1) // Localiser le précédent
+						current.next = (current.next.next) ? current.next.next : null; //Le next du précédent sera le next.next(Si pas null) sinon = null
+
+				this.size--;
+			}
+
+			Reverse(){
+				for (var i = 0, current = this.head, tmp = null, oldNext; i <= this.size; i++, current = oldNext)// Déplacement par l'encient Next		
+					if (current == null)
+						this.head = tmp;
+					else{ // Affecter
+						oldNext = current.next;
+						current.next = tmp;
+						tmp = current;
+					}	
+			}
+
+			Print(index = 0){
+				var value = "";
+
+				for(var i = 0, current = this.head; i < this.size; i++, current = current.next)
+					value += ((i == index)? "<td style='color:red;'>" : "<td>") + (i+1) + ": " + current.data + "</td><br>";
+
+				return value;
+			}
+
+			PrintOnly(index = 0){
+				var value = "";
+
+				for(var i = 0, current = this.head; i < this.size; i++, current = current.next)
+					if (i == index) value = "<span class='audio2'><audio controls='controls'><source src='" + current.data + "' /></audio></span>";
+
+				return value;
+			}
+		}
+
+		var linkedList = new LinkedList();
+		var index = 0;
+
+		linkedList.InsertAt("audio/Alan Walker - Alone.mp3");
+		linkedList.InsertAt("audio/Alan Walker - Faded.mp3");
+		linkedList.InsertAt("audio/Alan Walker - Sing Me To Sleep.mp3");
+		document.getElementById("playlist").innerHTML = linkedList.Print();
+		document.getElementById("tr2").innerHTML = linkedList.PrintOnly();
+
+		function Add(){
+			var data = document.getElementById("valueAdd").value;
+			var valueAt = document.getElementById("valueAt").value;
+			valueAt--; // exemple le 1er sera le 0
+
+			if (document.getElementById("first").checked) 
+				linkedList.InsertAt(data, 0);
+			else if (document.getElementById("last").checked) 
+				linkedList.InsertAt(data);
+			else linkedList.InsertAt(data, valueAt);
+
+			document.getElementById("playlist").innerHTML = linkedList.Print();
+			document.getElementById("tr2").innerHTML = linkedList.PrintOnly();
+		}
+
+		function Remove(){
+			var valueAt = document.getElementById("indexRmv").value;
+			valueAt--; // exemple le 1er sera le 0	
+
+			linkedList.RemoveAt(valueAt);
+
+			document.getElementById("playlist").innerHTML = linkedList.Print();
+			document.getElementById("tr2").innerHTML = linkedList.PrintOnly();
+		}
+
+		// Pile & File
+		function Add_FilePile(){
+			var data = document.getElementById("value_FP").value;
+
+			if (document.getElementById("pile").checked) 
+				linkedList.InsertAt(data, 0);
+			else if (document.getElementById("file").checked) 
+				linkedList.InsertAt(data);
+
+			document.getElementById("playlist").innerHTML = linkedList.Print();
+			document.getElementById("tr2").innerHTML = linkedList.PrintOnly();
+		}
+
+		function Remove_FilePile(){
+			var data = document.getElementById("value_FP").value;
+
+			if (document.getElementById("pile").checked) 
+				linkedList.RemoveAt(0);
+			else if (document.getElementById("file").checked) 
+				linkedList.RemoveAt();
+
+			document.getElementById("playlist").innerHTML = linkedList.Print();
+			document.getElementById("tr2").innerHTML = linkedList.PrintOnly();
+		}
+
+		function Next(){
+			if (index < linkedList.size - 1) index++;
+			document.getElementById("playlist").innerHTML = linkedList.Print(index);
+			document.getElementById("tr2").innerHTML = linkedList.PrintOnly(index);
+		}
+
+		function Previous(){
+			if (index > 0) index--;
+			document.getElementById("playlist").innerHTML = linkedList.Print(index);
+			document.getElementById("tr2").innerHTML = linkedList.PrintOnly(index);
+		}
+
+
+		function Reverse(){
+			linkedList.Reverse();
+
+			document.getElementById("playlist").innerHTML = linkedList.Print();
+			document.getElementById("tr2").innerHTML = linkedList.Print();
+		}
+
+		function ClearList(){
+			linkedList = new LinkedList();
+			document.getElementById("playlist").innerHTML = linkedList.Print();
+			document.getElementById("tr2").innerHTML = linkedList.Print();
+		}
+		
+	</script>
+
+</body>
+</html>

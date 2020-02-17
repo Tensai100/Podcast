@@ -1,0 +1,128 @@
+/*Sommaire
+Header
+	.logo
+
+
+Contenue
+Footer
+
+
+*/
+
+.flex{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+body{
+	background: url('../img/background.jpg') no-repeat;
+	background-size: cover;
+	margin: 20px;
+}
+
+img{
+	width: 100%;
+}
+
+/*Header*/
+
+header{
+	border-bottom: 2px solid #AD38A9;
+}
+
+header>.logo{
+	width: 200px;
+	font-size: 0.8em;
+}
+
+header>.logo>div{
+	width: 100px;
+}
+
+header>.logo>h1{
+	margin: 0;
+}
+
+
+/*Contenue*/
+
+/*Podcast*/
+
+/*Show*/
+
+.podcast>.show{
+	width: 40%;
+	padding: 20px;
+	border: 2px solid #ddd;
+}
+
+.podcast>.show>.leftShow{
+	width: 50%;
+}
+
+.podcast>.show>.leftShow>.imgPod{
+	width: 320px;
+}
+
+.podcast>.show>.leftShow>.imgPod>img{
+	border-radius: 10%;
+}
+
+.podcast>.show>.rightShow{
+	width: 50%;
+}
+
+/*Informations*/
+
+.podcast>.infos{
+	padding: 20px;
+	width: 55%;
+	background-color: #ddd;
+	font-size: 1em;
+}
+
+.podcast>.infos>table>tbody>tr>td{
+	padding: 6px;
+}
+
+
+/*List*/
+
+.podList{
+	width: 40%;
+	padding: 20px;
+	border: 2px solid #ddd;
+}
+
+.podList>.pod{
+	width: 320px;
+	font-size: 12px;
+	margin: 20px;
+}
+
+.podList>.pod>div>img{
+	border-radius: 10%;
+}
+
+/*Playlist*/
+
+.playlist{
+	width: 55%;
+	padding: 20px;
+}
+
+audio{
+	width: 100%;
+}
+
+.playlist>.lecteur>.infosLecteur{
+	padding: 0px 16px;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.72);
+	color: white;	
+}
+
+.playlist>.lecteur>.infosLecteur>span>a>.telecharger{
+	width: 45px;
+}
