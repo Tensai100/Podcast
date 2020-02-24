@@ -1,0 +1,33 @@
+/*Sommaire
+Header
+	.logo
+
+
+Contenue
+Footer
+
+
+*/
+
+
+
+@media screen and (max-width: 500px){
+
+  /*Playlist*/
+	
+	body{
+		font-size: 8px;
+	}
+	
+	.podList{
+	}
+	
+	.playlist{
+		padding: 0px;
+	}
+	
+	.playlist>.audioList>li{
+		margin-left: 0;
+	}
+
+}

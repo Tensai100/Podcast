@@ -1,0 +1,56 @@
+/*Sommaire
+Header
+	.logo
+
+
+Contenue
+Footer
+
+
+*/
+
+
+
+@media screen and (max-width: 1000px){
+	
+	.logoWidth{
+		width: 50px;
+	}
+	
+	header>.lecteur_conteneur{
+		justify-content: flex-end;
+		width: 60%;
+		flex-wrap: nowrap;
+	}
+
+  header>.lecteur_conteneur>.lecteur{
+  	width: 80%;
+  }
+	
+	header>.lecteur_conteneur>.lecteur>.infosLecteur{
+		font-size: 12px;
+	}
+	
+	.podcast>.show{
+		width: 100%;
+	}
+	
+	.podcast>.infos{
+		width: 100%;
+	}
+	
+	
+
+  /*Playlist*/
+	
+	.podList{
+		width: 100%;
+		order: 2;
+	}
+	
+	.playlist{
+		width: 100%;
+		order: 1;
+	}
+
+}
